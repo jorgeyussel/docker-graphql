@@ -30,12 +30,14 @@ jobs:
       env:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        NEW_VERSION: ${{ steps.version.outputs.version }}
+        NEW_VERSION: ${{ steps.version.outputs }}
       run: |
         echo "Iniciando login"
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-        echo "New Version: $NEW_VERSION"
+        echo "New Ver: $NEW_VERSION"
         echo "Fin Login"
+
+        
     #- name: Build docker image
     #   run: |
      #    docker build -t jorgeyussel/docker-graphql:0.0.2 .
